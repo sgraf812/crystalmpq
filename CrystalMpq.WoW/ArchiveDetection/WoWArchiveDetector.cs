@@ -83,7 +83,7 @@ namespace CrystalMpq.WoW.ArchiveDetection
                         var archives = versionHandlers[installationKind.Value].CollectLanguagePackArchives(directoryPath, directoryName);
                         languagePackList.Add(new WoWLanguagePack(installation, culture, archives));
                     }
-                    catch (CultureNotFoundException) { } // Catches only CultureNotFoundException, which should only happen when there is no CultureInfo with that name
+                    catch (ArgumentException) { } // Catches only CultureNotFoundException, which should only happen when there is no CultureInfo with that name
                 }
             }
 
