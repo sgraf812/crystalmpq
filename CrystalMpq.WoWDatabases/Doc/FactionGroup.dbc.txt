@@ -1,0 +1,7 @@
+FactionGroup.dbc
+
+Field	Contents
+0	ID
+1	?
+2	Internal Group Name
+3	Localized Name

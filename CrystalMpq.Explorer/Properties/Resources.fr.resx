@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CannotFindMoreMessage" xml:space="preserve">
+    <value>Impossible de trouver une autre occurence du texte.</value>
+  </data>
+  <data name="DirectoryCreationDialogMessage" xml:space="preserve">
+    <value>Le répertoire "{0}" n'existe pas. Tenter de le créer ?</value>
+  </data>
+  <data name="DirectoryCreationDialogTitle" xml:space="preserve">
+    <value>Le répertoire spécifié n'existe pas</value>
+  </data>
+  <data name="DirectoryCreationErrorDialogMessage" xml:space="preserve">
+    <value>Impossible de créer le répertoire "{0}".</value>
+  </data>
+  <data name="DirectoryCreationErrorDialogTitle" xml:space="preserve">
+    <value>Erreur à la création du répertoire</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ExtractionFileMessage" xml:space="preserve">
+    <value>Extraction du fichier {0} sur {1} :
+{2}</value>
+  </data>
+  <data name="ExtractionStatusMessage" xml:space="preserve">
+    <value>{0} de {1} traités.</value>
+  </data>
+  <data name="InvalidDirectoryErrorDialogTitle" xml:space="preserve">
+    <value>Répertorie invalide</value>
+  </data>
+  <data name="InvalidDirectoryNameErrorDialogMessage" xml:space="preserve">
+    <value>Le nom de répertoire spécifié contient des caractères invalides tels que ", &lt;, &gt; ou |.</value>
+  </data>
+  <data name="InvalidDirectoryNullErrorDialogMessage" xml:space="preserve">
+    <value>Le nom de répertoire est vide.</value>
+  </data>
+  <data name="InvalidDirectoryPathTooLongErrorDialogMessage" xml:space="preserve">
+    <value>Le nom de répertoire est trop long.</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>Impossible de trouver le texte.</value>
+  </data>
+  <data name="OverwriteFileDialogMessage" xml:space="preserve">
+    <value>Un fichier nommé "{0}" existe déjà dans le répertoire "{1}". Voulez-vous l'écraser ?</value>
+  </data>
+  <data name="OverwriteFileDialogTitle" xml:space="preserve">
+    <value>Écraser le fichier</value>
+  </data>
+  <data name="PropertyDescriptionDefaultEncoding" xml:space="preserve">
+    <value>Encodage utilisé lors de l'ouverture d'un nouveau fichier.</value>
+  </data>
+  <data name="PropertyDescriptionGeneralSettings" xml:space="preserve">
+    <value>Paramètres généraux de CrystalMpq Explorer</value>
+  </data>
+  <data name="PropertyDescriptionPluginsDirectory" xml:space="preserve">
+    <value>L'emplacement ou sont stockés les assemblys d'extension. La modification de ce paramètre sera prise en compte au prochain démarrage.</value>
+  </data>
+  <data name="PropertyDescriptionTextViewerSettings" xml:space="preserve">
+    <value>Paramètres du visualiseur de texte interne de CrystalMpq Explorer.</value>
+  </data>
+  <data name="PropertyDescriptionViewerBackColor" xml:space="preserve">
+    <value>Couleur d'arrière plan du panneau de visualisation.</value>
+  </data>
+  <data name="PropertyDisplayNameDefaultEncoding" xml:space="preserve">
+    <value>Encodage par défaut du texte</value>
+  </data>
+  <data name="PropertyDisplayNameGeneralSettings" xml:space="preserve">
+    <value>Paramètres généraux</value>
+  </data>
+  <data name="PropertyDisplayNamePluginsDirectory" xml:space="preserve">
+    <value>Répertoire des extensions</value>
+  </data>
+  <data name="PropertyDisplayNameTextViewerSettings" xml:space="preserve">
+    <value>Paramètres du visualiseur de texte</value>
+  </data>
+  <data name="PropertyDisplayNameViewerBackColor" xml:space="preserve">
+    <value>Couleur d'arrière-plan</value>
+  </data>
+  <data name="ReachedEndMessage" xml:space="preserve">
+    <value>Fin du texte atteinte. Reprise au début.</value>
+  </data>
+  <data name="SettingsGeneral" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="SettingsPlugins" xml:space="preserve">
+    <value>Extensions</value>
+  </data>
+  <data name="UnitByteFormat" xml:space="preserve">
+    <value>1 octet</value>
+  </data>
+  <data name="UnitBytesFormat" xml:space="preserve">
+    <value>{0:0.##} octets</value>
+  </data>
+  <data name="UnitExaByteFormat" xml:space="preserve">
+    <value>{0:0.##} Eo</value>
+  </data>
+  <data name="UnitGigaByteFormat" xml:space="preserve">
+    <value>{0:0.##} Go</value>
+  </data>
+  <data name="UnitKiloByteFormat" xml:space="preserve">
+    <value>{0:0.##} Ko</value>
+  </data>
+  <data name="UnitMegaByteFormat" xml:space="preserve">
+    <value>{0:0.##} Mo</value>
+  </data>
+  <data name="UnitPetaByteFormat" xml:space="preserve">
+    <value>{0:0.##} Po</value>
+  </data>
+  <data name="UnitTeraByteFormat" xml:space="preserve">
+    <value>{0:0.##} To</value>
+  </data>
+</root>

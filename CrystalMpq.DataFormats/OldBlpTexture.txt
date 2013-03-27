@@ -1,0 +1,688 @@
+﻿#region Copyright Notice
+// This file is part of CrystalMPQ.
+// 
+// Copyright (C) 2007-2011 Fabien BARBIER
+// 
+// CrystalMPQ is licenced under the Microsoft Reciprocal License.
+// You should find the licence included with the source of the program,
+// or at this URL: http://www.microsoft.com/opensource/licenses.mspx#Ms-RL
+#endregion
+
+using System;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+
+namespace CrystalMpq.DataFormats
+{
+	/// <summary>Encapsulates bitmap data corresponding to a BLP image.</summary>
+	public sealed class BlpTexture : IDisposable
+	{
+		#region BLP Header Structures
+
+		[StructLayout(LayoutKind.Sequential, Pack = 4)]
+		private unsafe struct Blp1Header
+		{
+			public int Compression; // 0 for JPEG, 1 for Palette
+			public int Alpha; // 8 for 8 bit alpha, 0 for no alpha
+			public int Width; // Width of first mip map
+			public int Height; // Height of first mip map
+			public int PictureType; // Information on compression (if not JPEG)
+			public int PictureSubType; // Always 1 ?
+			public fixed int Offsets[16]; // Mip map offsets
+			public fixed int Lengths[16]; // Mip map data lengths
+		}
+
+		[StructLayout(LayoutKind.Sequential, Pack = 4)]
+		private unsafe struct Blp2Header
+		{
+			public int Type;
+			public int Compression;
+			public int AlphaDepth;
+			public int AlphaType;
+			public bool HasMipMaps;
+			public int Width;
+			public int Height;
+			public fixed int Offsets[16];
+			public fixed int Lengths[16];
+		}
+
+		#endregion
+
+		#region MipMapCollection Class
+
+		public sealed class MipMapCollection : IEnumerable<Bitmap>
+		{
+			private BlpTexture owner;
+
+			internal  MipMapCollection(BlpTexture owner)
+			{
+				this.owner = owner;
+			}
+
+			public Bitmap this[int index]
+			{
+				get
+				{
+					if (index < 0 || index >= owner.mipmaps.Length)
+						throw new ArgumentOutOfRangeException("index");
+					return owner.mipmaps[index];
+				}
+			}
+
+			public int Count
+			{
+				get
+				{
+					return owner.mipmaps.Length;
+				}
+			}
+
+			public IEnumerator<Bitmap> GetEnumerator()
+			{
+				for (int i = 0; i < owner.mipmaps.Length; i++)
+					yield return owner.mipmaps[i];
+			}
+
+			IEnumerator IEnumerable.GetEnumerator()
+			{
+				return owner.mipmaps.GetEnumerator();
+			}
+		}
+
+		#endregion
+
+		#region AlphaOperation Enum
+
+		enum AlphaOperation
+		{
+			None,
+			SetAlpha,
+			InvertAlpha
+		}
+
+		#endregion
+
+		private Bitmap[] mipmaps;
+		private uint version;
+		private int width, height;
+
+		public BlpTexture(Stream stream)
+			: this(stream, true) { }
+
+		public BlpTexture(Stream stream, bool loadMipMaps)
+		{
+			long position = 0;
+
+			if (stream.CanSeek)
+				position = stream.Position;
+			LoadFromStream(stream, loadMipMaps);
+			if (stream.CanSeek)
+				stream.Seek(position, SeekOrigin.Begin);
+		}
+
+		public BlpTexture(string filename)
+			: this(filename, true) { }
+
+		public BlpTexture(string filename, bool loadMipMaps)
+		{
+			Stream stream;
+
+			stream = File.Open(filename, FileMode.Open);
+			LoadFromStream(stream, loadMipMaps);
+			stream.Close();
+		}
+
+		// This method reads the file signature and, if valid,
+		// dispatches the loading process to version-corresponding functions
+		// NB: Actually handles BLP1 and BLP2
+		// NB: BLP1 is JPEG-based and BLP2 is DXTC-based
+		private void LoadFromStream(Stream stream, bool loadMipMaps)
+		{
+			BinaryReader reader = new BinaryReader(stream);
+			uint signature;
+			int startOffset;
+			int mipMapCount;
+
+#if DEBUG
+			if (loadMipMaps)
+				throw new Exception("[BLPTexture::LoadFromStream] There is a bug when loadMipMaps == true" + Environment.NewLine
+					+ "Needs to be fixed: when mipmap size < 4px ==> Memory Corruption");
+#endif
+			// We will try to load either all mip maps or just the first
+			// Currently only the first... up until the bug is fixed
+			//if (loadMipMaps)
+			//    mipMapCount = 16;
+			//else
+				mipMapCount = 1;
+
+			// Begin the decoding
+			startOffset = (int)stream.Position;
+			signature = reader.ReadUInt32();
+			if ((signature & 0xFFFFFF) != 0x504C42)
+				throw new InvalidDataException();
+			else if (signature >> 24 == 0x31) // Check if BLP1
+				LoadBlp1(reader, startOffset, mipMapCount); // Use BLP1 reading method
+			else if (signature >> 24 == 0x32) // Check if BLP2
+				LoadBlp2(reader, startOffset, mipMapCount); // Use BLP2 reading method
+			else
+				throw new InvalidDataException();
+		}
+
+		// Incorrect rendering due to Blizzard's use of Intel's Jpeg Library (CMYK vs YMCK…)
+		// We need to swap Red and Blue channels to get a correct image
+		private void LoadBlp1(BinaryReader reader, int startOffset, int mipMapCount)
+		{
+			Stream stream = reader.BaseStream;
+			Blp1Header header;
+
+			header = ReadBlp1Header(reader, startOffset);
+
+			if (header.Compression == 0)
+				LoadJpegMipMaps(header, reader, startOffset, mipMapCount);
+			else if (header.Compression == 1)
+				LoadBlp1MipMaps(header, reader, startOffset, mipMapCount);
+			else
+				mipmaps = new Bitmap[0];
+		}
+
+		private static unsafe Blp1Header ReadBlp1Header(BinaryReader reader, int startOffset)
+		{
+			Blp1Header header;
+
+			header.Compression = reader.ReadInt32();
+			header.Alpha = reader.ReadInt32();
+			header.Width = reader.ReadInt32();
+			header.Height = reader.ReadInt32();
+			header.PictureType = reader.ReadInt32();
+			header.PictureSubType = reader.ReadInt32();
+
+			// Read mipmap info
+			for (int i = 0; i < 16; i++) header.Offsets[i] = reader.ReadInt32();
+			for (int i = 0; i < 16; i++) header.Lengths[i] = reader.ReadInt32();
+
+			return header;
+		}
+
+		private unsafe void LoadJpegMipMaps(Blp1Header header, BinaryReader reader, int startOffset, int mipMapCount)
+		{
+			byte[] buffer;
+			MemoryStream bufferStream;
+			int jpegHeaderLength;
+			List<Bitmap> mipmaps;
+
+			mipmaps = new List<Bitmap>();
+
+			// Read the JPEG header length from the current position in the stream (We'll use the same header for all mipmaps)
+			jpegHeaderLength = reader.ReadInt32();
+
+			// Now allocates a buffer... Here we assume that the first mip map is the biggest one...
+			buffer = new byte[jpegHeaderLength + header.Lengths[0]];
+			bufferStream = new MemoryStream(buffer, false);
+
+			// And read the JPEG header
+			reader.Read(buffer, 0, jpegHeaderLength);
+
+			for (int i = 0; i < mipMapCount; i++) // Process each mipmap
+			{
+				Bitmap currentMipMap;
+
+				if (header.Offsets[i] == 0 || header.Lengths[i] == 0)
+					break;
+
+				// Seek to the position of mip map #i
+				reader.BaseStream.Seek(startOffset + header.Offsets[i], SeekOrigin.Begin);
+				// And read the data in our buffer
+				reader.Read(buffer, jpegHeaderLength, header.Lengths[i]);
+				// Now we can load the mip map in a bitmap, and swap Red/Blue channels
+				// because the JPEG encoder used by Blizzard is not the one used in GDI+
+				// (Blizzard uses Intel JPEG Library)
+				currentMipMap = Image.FromStream(bufferStream, true, false) as Bitmap;
+				SwapRedAndBlueChannels(currentMipMap);
+				mipmaps.Add(currentMipMap);
+			}
+
+			this.mipmaps = mipmaps.ToArray();
+		}
+
+		private unsafe void LoadBlp1MipMaps(Blp1Header header, BinaryReader reader, int startOffset, int mipMapCount)
+		{
+			byte[] palette;
+			AlphaOperation alphaOperation;
+			List<Bitmap> mipmaps;
+			int w, h;
+			int alphaDepth;
+
+			mipmaps = new List<Bitmap>();
+
+			w = header.Width;
+			h = header.Height;
+
+			// Here we handle the different cases for paletted BLP1
+			if (header.PictureType == 5)
+			{
+				alphaDepth = 0;
+				alphaOperation = AlphaOperation.InvertAlpha;
+			}
+			else
+			{
+				alphaDepth = 8;
+				alphaOperation = AlphaOperation.None;
+			}
+
+			palette = ReadPalette(reader, alphaOperation);
+
+			fixed (byte* pPalette = palette)
+			{
+				for (int i = 0; i < mipMapCount; i++) // Process each mipmap
+				{
+					Bitmap currentMipMap;
+
+					if (header.Offsets[i] == 0 || header.Lengths[i] == 0)
+						break;
+
+					// Seek to the position of mip map #i
+					reader.BaseStream.Seek(startOffset + header.Offsets[i], SeekOrigin.Begin);
+					currentMipMap = new Bitmap(w, h, PixelFormat.Format32bppArgb);
+					ReadPalettedMipMap(reader, currentMipMap, (uint*)pPalette, alphaDepth);
+					mipmaps.Add(currentMipMap);
+				}
+			}
+
+			this.mipmaps = mipmaps.ToArray();
+		}
+
+		/// <summary>Reads a 256 color palette from a stream</summary>
+		/// <param name="reader">The BinaryReader used for reading data in the stream</param>
+		/// <param name="alphaOperation">The operation to apply on each palette entry's alpha component</param>
+		/// <returns>An array of bytes containing the palette entries</returns>
+		private byte[] ReadPalette(BinaryReader reader, AlphaOperation alphaOperation)
+		{
+			byte[] palette = reader.ReadBytes(256 * 4);
+
+			if (alphaOperation == AlphaOperation.SetAlpha)
+				for (int i = 3; i < palette.Length; i += 4)
+					palette[i] = 255;
+			else if (alphaOperation == AlphaOperation.InvertAlpha)
+				for (int i = 3; i < palette.Length; i += 4)
+					palette[i] ^= 255;
+
+			return palette;
+		}
+
+		/// <summary>
+		/// Reads a paletted mip map from a stream
+		/// </summary>
+		/// <param name="reader">BinaryReader used for reading data in the stream</param>
+		/// <param name="bitmap">Destination bitmap</param>
+		/// <param name="palette">Palette data</param>
+		/// <param name="alphaDepth">Alpha Depth. Valid values are 0, 1 or 8</param>
+		/// <remarks>
+		///		This function assumes that the bitmap is well sized and that there is enough data to read in the stream.
+		///		The palette data must also have been preprocessed before calling this function if needed by the format.
+		///	</remarks>
+		private unsafe void ReadPalettedMipMap(BinaryReader reader, Bitmap bitmap, uint* palette, int alphaDepth)
+		{
+			BitmapData bitmapData;
+			byte* pScan0, pCurrentScan;
+			uint* pCurrentPixel;
+			int x, y, w, h;
+
+			w = bitmap.Width;
+			h = bitmap.Height;
+
+			bitmapData = bitmap.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+			pScan0 = (byte*)bitmapData.Scan0.ToPointer();
+			pCurrentScan = pScan0;
+			pCurrentPixel = (uint*)pCurrentScan;
+
+			// We read the data, assuming correct values are contained in the palette
+			// With opaques images, you must ensure alpha is equal to 255 for each palette entry
+			// With paletted alpha images, you must invert alpha for each palette entry
+			// With separate alpha images, we just don't care :)
+			for (y = 0; y < h; y++)
+			{
+				for (x = 0; x < w; x++)
+					*pCurrentPixel++ = palette[reader.ReadByte()];
+				pCurrentScan += bitmapData.Stride;
+				pCurrentPixel = (uint*)pCurrentScan;
+			}
+
+			pCurrentScan = pScan0;
+			pCurrentPixel = (uint*)pCurrentScan;
+
+			if (alphaDepth == 1)
+			{
+				int bitCount = 0;
+				byte data = 0;
+
+				for (y = 0; y < h; y++)
+				{
+					for (x = 0; x < w; x++)
+					{
+						if (bitCount-- == 0)
+						{
+							data = reader.ReadByte();
+							bitCount = 7;
+						}
+						if ((data & 1) != 0)
+							*pCurrentPixel++ |= 0xFF000000;
+						else
+							*pCurrentPixel++ &= 0x00FFFFFF;
+						data >>= 1;
+					}
+					pCurrentScan += bitmapData.Stride;
+					pCurrentPixel = (uint*)pCurrentScan;
+				}
+			}
+			else if (alphaDepth == 8)
+			{
+				for (y = 0; y < h; y++)
+				{
+					for (x = 0; x < w; x++)
+					{
+						*pCurrentPixel = *pCurrentPixel & 0xFFFFFF | ((uint)reader.ReadByte() << 24);
+						pCurrentPixel++;
+					}
+					pCurrentScan += bitmapData.Stride;
+					pCurrentPixel = (uint*)pCurrentScan;
+				}
+			}
+
+			bitmap.UnlockBits(bitmapData);
+		}
+
+		private void LoadBlp2(BinaryReader reader, int startOffset, int mipMapCount)
+		{
+			Stream stream = reader.BaseStream;
+			byte compression, alphaDepth, alphaType, u3;
+			int[] mipmapOffsets = new int[16], mipmapSizes = new int[16];
+			List<Bitmap> mipmaps;
+			Bitmap bitmap;
+			int w, h;
+			uint color0, color1, line;
+			uint r0, r1, g0, g1, b0, b1;
+			uint[] colors = null, palette = null;
+			byte[] alpha = null;
+			uint[,] buffer;
+
+			if ((version = reader.ReadUInt32()) != 0x1)
+				throw new Exception();
+			compression = (byte)reader.ReadByte();
+			alphaDepth = (byte)reader.ReadByte();
+			alphaType = (byte)reader.ReadByte();
+			u3 = (byte)reader.ReadByte();
+			width = reader.ReadInt32();
+			height = reader.ReadInt32();
+			for (int i = 0; i < 16; i++)
+				mipmapOffsets[i] = reader.ReadInt32();
+			for (int i = 0; i < 16; i++)
+				mipmapSizes[i] = reader.ReadInt32();
+
+			mipmaps = new List<Bitmap>();
+			buffer = new uint[4, 4];
+			if (compression == 1)
+			{
+				// Load palette colors
+				palette = new uint[256];
+				for (int i = 0; i < palette.Length; i++)
+					palette[i] = reader.ReadUInt32();
+			}
+			else if (compression == 2)
+			{
+				// Initialize color array
+				colors = new uint[4];
+				if (alphaDepth == 8 && alphaType == 7)
+					// Initialize alpha array
+					alpha = new byte[8];
+			}
+			for (int i = 0; i < mipMapCount; i++) // Process each mipmap
+			{
+				if (mipmapOffsets[i] == 0 || mipmapSizes[i] == 0)
+					break;
+				stream.Seek(startOffset + mipmapOffsets[i], SeekOrigin.Begin);
+				w = width >> i; h = height >> i; // Divide height by 2 ^ n
+				bitmap = new Bitmap(w, h, PixelFormat.Format32bppArgb); // Create bitmap for current mipmap
+				BitmapData bitmapData = bitmap.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+				if (compression == 1)
+				{
+					unsafe
+					{
+						byte* pScan = (byte*)bitmapData.Scan0.ToPointer();
+
+						// Read color
+						if (alphaDepth == 0)
+						{
+							for (int y = 0; y < h; y++)
+							{
+								uint* pPixel = (uint*)pScan;
+								for (int x = 0; x < w; x++)
+									*pPixel++ = palette[reader.ReadByte()] | 0xFF000000;
+								pScan += bitmapData.Stride;
+							}
+						}
+						else
+						{
+							for (int y = 0; y < h; y++)
+							{
+								uint* pPixel = (uint*)pScan;
+								for (int x = 0; x < w; x++)
+									*pPixel++ = palette[reader.ReadByte()];
+								pScan += bitmapData.Stride;
+							}
+						}
+
+						pScan = (byte*)bitmapData.Scan0.ToPointer();
+
+						// Read alpha
+						if (alphaDepth == 1)
+						{
+							int bitCount = 0;
+							byte data = 0;
+
+							for (int y = 0; y < h; y++)
+							{
+								byte* pPixelAlpha = pScan + 3;
+								for (int x = 0; x < w; x++, pPixelAlpha += 4)
+								{
+									if (bitCount-- == 0)
+									{
+										data = reader.ReadByte();
+										bitCount = 7;
+									}
+									*pPixelAlpha = ((data & 1) != 0) ? (byte)0xFF : (byte)0x00;
+									data >>= 1;
+								}
+								pScan += bitmapData.Stride;
+							}
+						}
+						else if (alphaDepth == 8)
+						{
+							for (int y = 0; y < h; y++)
+							{
+								byte* pPixelAlpha = pScan + 3;
+								for (int x = 0; x < w; x++, pPixelAlpha += 4)
+									*pPixelAlpha = reader.ReadByte();
+								pScan += bitmapData.Stride;
+							}
+						}
+					}
+				}
+				else if (compression == 2)
+				{
+					for (int b = 0; b < h; b += 4)
+					{
+						for (int a = 0; a < w; a += 4)
+						{
+							// First read alpha if present
+							if (alphaType == 7 && alphaDepth == 8) // DTX5
+							{
+								byte alpha0 = reader.ReadByte(),
+									alpha1 = reader.ReadByte();
+
+								// Initialize interpolated values
+								alpha[0] = alpha0;
+								alpha[1] = alpha1;
+								if (alpha0 > alpha1) // 8 interpolated alpha values
+									for (int l = 1; l < 7; l++)
+										alpha[l + 1] = (byte)(((7 - l) * alpha0 + l * alpha1 + 3) / 7);
+								else // 6 interpolated alpha value + 0 and 255
+								{
+									for (int l = 1; l < 5; l++)
+										alpha[l + 1] = (byte)(((5 - l) * alpha0 + l * alpha1 + 2) / 5);
+									alpha[6] = 0;
+									alpha[7] = 255;
+								}
+
+								int data24 = 0;
+								for (int y = 0; y < 4; y++)
+								{
+									if ((y & 1) == 0)
+										data24 = reader.ReadUInt16() + ((int)reader.ReadByte() << 16);
+									for (int x = 0; x < 4; x++)
+									{
+										//buffer[y, x] = alpha[(data24 >> (3 * (((y & 1) << 2) + x))) & 7];
+										buffer[y, x] = alpha[data24 & 7];
+										data24 >>= 3;
+									}
+								}
+							}
+							else if (alphaType == 1 && (alphaDepth == 4 || alphaDepth == 8))
+								for (int y = 0; y < 4; y++)
+								{
+									line = reader.ReadUInt16();
+									for (int x = 0; x < 4; x++)
+										buffer[y, x] = ((line >> (4 * x)) & 0xF) << 4;
+								}
+							// Then read colors
+							// Two first words are extreme colors that will be used for interpolation
+							color0 = reader.ReadUInt16();
+							color1 = reader.ReadUInt16();
+							// Separate color components for an easier manipulation later
+							r0 = (color0 >> 8) & 0xF8; g0 = (color0 >> 3) & 0xFC; b0 = (color0 << 3) & 0xF8;
+							r1 = (color1 >> 8) & 0xF8; g1 = (color1 >> 3) & 0xFC; b1 = (color1 << 3) & 0xF8;
+							// These colors are fixed, so we initialize them here
+							colors[0] = (r0 << 16) | (g0 << 8) | b0;
+							colors[1] = (r1 << 16) | (g1 << 8) | b1;
+							if (color0 > color1 || alphaDepth == 8) // 4 Color mode (if color0 > color1 or if not DXT1)
+							{
+								colors[2] = ((((2 * r0 + r1 + 1) / 3) & 0xFF) << 16)
+									| ((((2 * g0 + g1 + 1) / 3) & 0xFF) << 8)
+									| (((2 * b0 + b1 + 1) / 3) & 0xFF);
+								colors[3] = ((((r0 + 2 * r1 + 1) / 3) & 0xFF) << 16)
+									| ((((g0 + 2 * g1 + 1) / 3) & 0xFF) << 8)
+									| (((b0 + 2 * b1 + 1) / 3) & 0xFF);
+							}
+							else // 3 color mode, where 4th color will be fully transparent
+							{
+								colors[2] = ((((r0 + r1) / 2) & 0xFF) << 16)
+									| ((((g0 + g1) / 2) & 0xFF) << 8)
+									| (((b0 + b1) / 2) & 0xFF);
+								colors[3] = 0xFF000000;
+							}
+							unsafe
+							{
+								byte* bitmapLine = ((byte*)bitmapData.Scan0) + b * bitmapData.Stride + a * sizeof(uint);
+
+								// Draw our pixels
+								if (alphaDepth == 8) // Different drawing if need to use alpha (only for optimisation)
+									fixed (uint* pBuffer = buffer)
+									{
+										uint* pBufferItem = pBuffer;
+
+										for (int y = 0; y < 4; y++)
+										{
+											uint* pixel = (uint*)bitmapLine;
+											line = reader.ReadByte();
+											for (int x = 0; x < 4; x++)
+											{
+												*pixel++ = (*pBufferItem++ << 24) | colors[line & 3];
+												line >>= 2;
+											}
+											bitmapLine += bitmapData.Stride;
+										}
+									}
+								else
+									for (int y = 0; y < 4; y++)
+									{
+										uint* pixel = (uint*)bitmapLine;
+										line = reader.ReadByte();
+										for (int x = 0; x < 4; x++)
+										{
+											*pixel++ = colors[line & 3] ^ 0xFF000000;
+											line >>= 2;
+										}
+										bitmapLine += bitmapData.Stride;
+									}
+							}
+						}
+					}
+				}
+				bitmap.UnlockBits(bitmapData);
+				mipmaps.Add(bitmap);
+			}
+			this.mipmaps = mipmaps.ToArray();
+		}
+
+		/// <summary>
+		/// Swaps red and blue channels of a bitmap.
+		/// This function is useful to recover colors from JPEG mip maps stored in BLP1 images.
+		/// </summary>
+		/// <param name="bitmap">Bitmap to modify</param>
+		private unsafe void SwapRedAndBlueChannels(Bitmap bitmap)
+		{
+			BitmapData bitmapData;
+			byte* pScan0, pCurrentScan, pCurrentPixel;
+			int w, h;
+
+			w = bitmap.Width;
+			h = bitmap.Height;
+
+			bitmapData = bitmap.LockBits(new Rectangle(0, 0, w, h), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+
+			pScan0 = (byte*)bitmapData.Scan0.ToPointer();
+			pCurrentScan = pScan0;
+			pCurrentPixel = pCurrentScan;
+
+			for (int y = 0; y < h; y++)
+			{
+				for (int x = 0; x < w; x++)
+				{
+					byte tmp;
+
+					tmp = pCurrentPixel[0];
+					pCurrentPixel[0] = pCurrentPixel[2];
+					pCurrentPixel[2] = tmp;
+
+					pCurrentPixel += 4;
+				}
+				pCurrentScan += bitmapData.Stride;
+				pCurrentPixel = pCurrentScan;
+			}
+
+			bitmap.UnlockBits(bitmapData);
+		}
+
+		public Bitmap FirstMipMap
+		{
+			get
+			{
+				if (mipmaps != null && mipmaps.Length > 0)
+					return mipmaps[0];
+				else
+					return null;
+			}
+		}
+
+		public void Dispose()
+		{
+			foreach (Bitmap mipmap in mipmaps)
+				if (mipmap != null)
+					mipmap.Dispose();
+		}
+	}
+}

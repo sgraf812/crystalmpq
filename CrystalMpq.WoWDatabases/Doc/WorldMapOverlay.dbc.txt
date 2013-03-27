@@ -1,0 +1,27 @@
+WorldMapOverlay.dbc
+
+Field	Contents
+0	ID
+1	WorldMapArea.ID
+2	AreaTable.ID
+3	AreaTable.ID
+4	AreaTable.ID
+5	AreaTable.ID
+6	0
+7	0
+8	Area data name
+9	Width of the overlay
+10	Height of the overlay
+11	X position of the overlay
+12	Y position of the overlay
+13	Bounding box - Y1
+14	Bounding box - X1
+15	Bounding box - Y2
+16	Bounding box - X2
+
+Overlays may be composed of one or more texture.
+We have the overlay's dimensions in fields 9 & 10,
+and a texture can have a maximum size (x or y) of 256.
+Based on that it's easy to calculate the number of textures used.
+Textures will be named Overlay1.blp Overlay2.blp ... OverlayN.blp
+Usually there should not be more than 4 textures

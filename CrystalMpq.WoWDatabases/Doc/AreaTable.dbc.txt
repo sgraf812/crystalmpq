@@ -1,0 +1,22 @@
+AreaTable.dbc
+
+Field	Contents
+0	ID
+1	Map.ID
+2	AreaTable.ID
+3	?
+4	?
+5	?
+6	?
+7	SoundAmbience.ID
+8	ZoneMusic.ID
+9	ZoneIntroMusic.ID
+10	Area level
+12-19	Localized Area Name
+20	FactionGroup.ID
+21
+22
+23
+24
+25	float being -500 or -5000
+26	float between 0 and 1

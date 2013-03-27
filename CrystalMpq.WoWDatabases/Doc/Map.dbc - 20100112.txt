@@ -1,0 +1,20 @@
+Map.dbc
+
+Field	Contents
+0	ID
+1	WMO name
+2	Zone type (Enum: 0 outside, 1 group instance, 2 raid instance, 3 pvp zone, 4 arena)
+3	Extra information ?
+4	Is it a battleground ?
+5-21	Name Localized
+22	AreaTable.ID
+23-39	Horde Description Localized
+40-56	Alliance Description Localized
+57	LoadingScreens.ID
+58	Some scaling ?
+59	Map.ID, Parent Instance (Azeroth for Azeroth instances, Kalimdor for Kalimdor instances, etc)
+60-61	Some (X,Y) position in parent instance... (Exit ?)
+62	Unknown flag
+63	Expansion Number
+64	Zul Gurub & Ahn Qiraj 20 Flag...
+65	Maximum Player Count

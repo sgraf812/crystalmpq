@@ -1,0 +1,18 @@
+WorldMapArea.dbc
+
+Field	Contents
+0	ID
+1	Map.ID
+2	AreaTable.ID
+3	Internal Area Name
+4	y1
+5	y2
+6	x1
+7	x2
+8	Flag for in-game world map information
+
+The flag works as following:
+If it is -1, then the map ID in field 1 works for everything
+If it is >=0, then the map where the zone resides is the one pointed by field 1,
+but the map where the zone is "seen" is the map ID in field 8
+

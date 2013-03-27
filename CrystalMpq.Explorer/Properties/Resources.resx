@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>CrystalMpq Explorer</value>
+  </data>
+  <data name="CannotFindMoreMessage" xml:space="preserve">
+    <value>Cannot find another occurence of the text.</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClosedFolderIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\file icons\folder-closed.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\copy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DirectoryCreationDialogMessage" xml:space="preserve">
+    <value>The directory "{0}" does not exists. Attempt to create it ?</value>
+  </data>
+  <data name="DirectoryCreationDialogTitle" xml:space="preserve">
+    <value>The specified directory does not exist</value>
+  </data>
+  <data name="DirectoryCreationErrorDialogMessage" xml:space="preserve">
+    <value>The directory "{0}" could not be created.</value>
+  </data>
+  <data name="DirectoryCreationErrorDialogTitle" xml:space="preserve">
+    <value>Error creating the directory</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExclamationToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\export.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExtractionFileMessage" xml:space="preserve">
+    <value>Extracting file {0} of {1}:
+{2}</value>
+  </data>
+  <data name="ExtractionStatusMessage" xml:space="preserve">
+    <value>{0} of {1} done.</value>
+  </data>
+  <data name="FindToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\find.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InvalidDirectoryErrorDialogTitle" xml:space="preserve">
+    <value>Invalid directory</value>
+  </data>
+  <data name="InvalidDirectoryNameErrorDialogMessage" xml:space="preserve">
+    <value>The specified directory name contains invalid characters, such as ", &lt;, &gt; or |.</value>
+  </data>
+  <data name="InvalidDirectoryNullErrorDialogMessage" xml:space="preserve">
+    <value>The directory name is empty.</value>
+  </data>
+  <data name="InvalidDirectoryPathTooLongErrorDialogMessage" xml:space="preserve">
+    <value>The directory name is too long.</value>
+  </data>
+  <data name="NotFoundMessage" xml:space="preserve">
+    <value>Text not found.</value>
+  </data>
+  <data name="OpenFolderIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\file icons\folder-open.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\open.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OverwriteFileDialogMessage" xml:space="preserve">
+    <value>A file with the name "{0}" already exists in the directory "{1}". Do you want to overwrite it ?</value>
+  </data>
+  <data name="OverwriteFileDialogTitle" xml:space="preserve">
+    <value>Overwrite file</value>
+  </data>
+  <data name="PropertiesToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\properties.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PropertyDescriptionDefaultEncoding" xml:space="preserve">
+    <value>Encoding used by the text viewer when viewing a new file.</value>
+  </data>
+  <data name="PropertyDescriptionGeneralSettings" xml:space="preserve">
+    <value>General Settings of CrystalMpq Explorer</value>
+  </data>
+  <data name="PropertyDescriptionPluginsDirectory" xml:space="preserve">
+    <value>The directory where plug-in assemblies are stored. Changes to this setting will be applied on next start.</value>
+  </data>
+  <data name="PropertyDescriptionTextViewerSettings" xml:space="preserve">
+    <value>Settings of CrystalMpq's internal Text Viewer.</value>
+  </data>
+  <data name="PropertyDescriptionViewerBackColor" xml:space="preserve">
+    <value>The background color of the view panel.</value>
+  </data>
+  <data name="PropertyDisplayNameDefaultEncoding" xml:space="preserve">
+    <value>Default Text Encoding</value>
+  </data>
+  <data name="PropertyDisplayNameGeneralSettings" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="PropertyDisplayNamePluginsDirectory" xml:space="preserve">
+    <value>Plugins Directory</value>
+  </data>
+  <data name="PropertyDisplayNameTextViewerSettings" xml:space="preserve">
+    <value>Text Viewer Settings</value>
+  </data>
+  <data name="PropertyDisplayNameViewerBackColor" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="ReachedEndMessage" xml:space="preserve">
+    <value>Reached end of the text.Starting back at the beginning.</value>
+  </data>
+  <data name="SaveToolbarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\save.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="SettingsPlugins" xml:space="preserve">
+    <value>Plug-ins</value>
+  </data>
+  <data name="UnitByteFormat" xml:space="preserve">
+    <value>1 byte</value>
+  </data>
+  <data name="UnitBytesFormat" xml:space="preserve">
+    <value>{0:0.##} bytes</value>
+  </data>
+  <data name="UnitExaByteFormat" xml:space="preserve">
+    <value>{0:0.##} EB</value>
+  </data>
+  <data name="UnitGigaByteFormat" xml:space="preserve">
+    <value>{0:0.##} GB</value>
+  </data>
+  <data name="UnitKiloByteFormat" xml:space="preserve">
+    <value>{0:0.##} KB</value>
+  </data>
+  <data name="UnitMegaByteFormat" xml:space="preserve">
+    <value>{0:0.##} MB</value>
+  </data>
+  <data name="UnitPetaByteFormat" xml:space="preserve">
+    <value>{0:0.##} PB</value>
+  </data>
+  <data name="UnitTeraByteFormat" xml:space="preserve">
+    <value>{0:0.##} TB</value>
+  </data>
+  <data name="UnknownFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\file icons\file-unknown.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

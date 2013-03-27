@@ -1,0 +1,28 @@
+﻿		static HuffmanItem InsertIntoList(HuffmanItem tail, HuffmanItem item)
+		{
+			HuffmanItem current = tail;
+
+			if (current == null)
+				return item;
+
+			while (current.Weight < item.Weight)
+			{
+				if (current.Previous == null)
+				{
+					item.Previous = null;
+					item.Next = current;
+					current.Previous = item;
+
+					return tail;
+				}
+				else
+					current = current.Previous;
+			}
+
+			item.Previous = current;
+			item.Next = current.Next;
+			current.Next.Previous = item;
+			current.Next = item;
+
+			return item;
+		}

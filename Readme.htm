@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>CrystalMpq</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+    	body
+    	{
+    		margin: 0;
+    		padding: 0;
+    		font-size: 8pt;
+    		font-family: Verdana, Sans-Serif;
+    		background-color: #F0F0F0;
+    	}
+		div#main 
+		{
+			background: white;
+			width: 800px;
+			margin: 10px auto;
+			padding: 10px 15px;
+			border: solid 1px #C0C0C0;
+		}
+		h1
+		{
+			text-align: center;
+			font-size: 4em;
+		}
+		h2
+		{
+			text-align: center;
+			font-size: 1.2em;
+			color: #808080;
+		}
+		dt
+		{
+			margin: 1.5em 0 0 0;
+			font-weight: bold;
+		}
+		dl ul { list-style-type: square; }
+		acronym
+		{
+			color: #008000;
+			border-bottom: dashed 1px #008000;
+		}
+    </style>
+</head>
+<body>
+	<div id="main">
+		<h1>CrystalMpq</h1>
+		<h2>By <a href="http://www.yaronet.com/blogs/GoldenCrystal">GoldenCrystal</a>, Updated for WoW 4.0</h2>
+		<dl>
+			<dt>What is it ?</dt>
+			<dd>CrystalMpq is a C# library designed to open <acronym title="MoPaQ">MPQ</acronym> archives. 
+				It still doesn't support all compression types, but most files should open 
+				correctly. <acronym title="World of Warcraft">WoW</acronym> Archives don&#39;t use 
+				the older compression types and should never encounter any problems. Older game 
+				archives such as Warcraft III archives might use unsupported compressions (ADPCM or Huffman that aren&#39;t supported yet), meaning that some 
+				(old) files might be 
+				unreadable by CrystalMpq for the time being.<br />
+				Some applications were developped along with the library and are part of the 
+				package. They should allow you to peek into your favorite Blizzard MMORPG&#39;s 
+				archives. Older game&#39;s archives should work fine as long as you don&#39;t want to 
+				access WAVE data.</dd>
+			<dt>Conditions</dt>
+			<dd>This software is delivered "as-is". You are free not to use it. If you choose to use it, the author shall not
+			be held responsible for any consequences to the (mis)usage of the software.</dd>
+			<dt>Requirements</dt>
+			<dd>
+				<ul>
+					<li>Windows 98 or later</li>
+					<li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0856eacb-4362-4b0d-8edd-aab15c5e04f5">Microsoft .NET Framework 2.0</a></li>
+					<li><a href="http://www.microsoft.com/downloads/details.aspx?familyid=9226a611-62fe-4f61-aba1-914185249413">DirectX 9.0c (for Audio/Video visualization)</a></li>
+				</ul>
+			</dd>
+			<dt>How to install</dt>
+			<dd>Unpack the whole archive to a directory of your choice, and ensure that you meet 
+				the above requirements.<br />
+				You might find it useful to run the dxwebsetup.exe tool. It will update your 
+				DirectX installation by downloading needed files directly from Microsoft&#39;s site.</dd>
+			<dt>Applications included in the package</dt>
+			<dd>
+				<ul>
+					<li>CrystalMpqExplorer: An explorer-style interface designed to browse MPQ files and their content.</li>
+					<li>DbcViewer: A simple user interface application that lets you open separate WoW DBC files.</li>
+					<li>WoWMapExplorer: A simple World Map viewer mimicking the World Map feature of WoW.</li>
+					<li>WoWSpellViewer: A basic interface for browing WoW Spells. Still Work in progress.</li>
+				</ul>
+			</dd>
+			<dt>Known issues</dt>
+			<dd>
+				<ul>
+					<li>Missing (known) compression types: ADPCM, Huffman</li>
+					<li>It is not possible to manually pick a WoW installation directory for now...</li>
+				</ul>
+			</dd>
+			<dt>Source Code</dt>
+			<dd>
+				You can find the source code at <a href="http://code.google.com/p/crystalmpq/">
+				http://code.google.com/p/crystalmpq/</a>.
+				<br />CrystalMpq is released under the
+				<a href="http://www.opensource.org/licenses/ms-rl.html">Ms-RL</a> License.
+			</dd>
+			<dt>For developers</dt>
+			<dd>
+				You are free to use the CrystalMpq library along with the CrystalMpq.Utility and CrystalMpq.DataFile librairies in your project.
+				Just give credit to the author for these. :)<br />Now the API should be stable 
+				enough (which by now way means that I will not break something if I need to), 
+				and a big part of the source code has XML documentation comments if you need 
+				information.<br />
+				I always try to name code elements in a meaningful way, so you shouldn&#39;t have 
+				too much trouble using the library.</dd>
+		</dl>
+	</div>
+</body>
+</html>

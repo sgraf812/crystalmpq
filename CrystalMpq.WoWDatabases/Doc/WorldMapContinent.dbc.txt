@@ -1,0 +1,13 @@
+WorldMapContinent.dbc
+
+Field	Contents
+0	ID
+1	Map.ID
+2	23 for Azeroth & Outland, 14 for Kalimdor
+3	47 for Azeroth & Outland, 48 for Kalimdor
+4	15 for Azeroth & Outland, 9 for Kalimdor
+5	61 for Azeroth & Outland, 52 for Kalimdor
+6	14.5 for Azeroth & Outland, -19 for Kalimdor
+7	-7 for Azeroth & Outland, -0.322498 for Kalimdor
+8	0.75 everywhere
+9-12	Possible map coordinates (min & max...)

@@ -1,0 +1,24 @@
+Map.dbc
+
+Field	Contents
+0	ID
+1	WMO name
+2	Zone type (Enum: 0 outside, 1 group instance, 2 raid instance, 3 pvp zone, 4 arena)
+3	Is it a battleground ?
+4-12	Name Localized
+13	Minimum level
+14	Maximum level
+15	Maximum player count
+16	True/False ?
+17	X ?
+18	Y ?
+19	AreaTable.ID
+20-28	Horde Description Localized
+29-37	Alliance Description Localized
+38	LoadingScreens.ID
+39	Level slices for battleground & such
+40	Unknown flag
+41	
+
+69	Parent Instance (Azeroth for Azeroth instances, Kalimdor for Kalimdor instances, etc)
+70-71	Some position in parent instance...

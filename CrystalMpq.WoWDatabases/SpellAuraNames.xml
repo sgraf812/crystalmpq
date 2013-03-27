@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SpellAuras>
+  <SpellAura Id="0" Category="0" InternalName="SPELL_AURA_NONE" Name="None" />
+  <SpellAura Id="1" Category="0" InternalName="SPELL_AURA_BIND_SIGHT" Name="Bind Sight" />
+  <SpellAura Id="2" Category="0" InternalName="SPELL_AURA_MOD_POSSESS" Name="Mod Possess" />
+  <SpellAura Id="3" Category="0" InternalName="SPELL_AURA_PERIODIC_DAMAGE" Name="Periodic Damage" />
+  <SpellAura Id="4" Category="0" InternalName="" Name="Dummy" />
+  <SpellAura Id="5" Category="0" InternalName="SPELL_AURA_MOD_CONFUSE" Name="Mod Confuse" />
+  <SpellAura Id="6" Category="0" InternalName="SPELL_AURA_MOD_CHARM" Name="Mod Charm" />
+  <SpellAura Id="7" Category="0" InternalName="SPELL_AURA_MOD_FEAR" Name="Mod Fear" />
+  <SpellAura Id="8" Category="0" InternalName="SPELL_AURA_PERIODIC_HEAL" Name="Periodic Heal" />
+  <SpellAura Id="9" Category="0" InternalName="SPELL_AURA_MOD_ATTACKSPEED" Name="Mod Attack Speed" />
+  <SpellAura Id="10" Category="0" InternalName="SPELL_AURA_MOD_THREAT" Name="Mod Threat" />
+  <SpellAura Id="11" Category="0" InternalName="SPELL_AURA_MOD_TAUNT" Name="Taunt" />
+  <SpellAura Id="12" Category="0" InternalName="SPELL_AURA_MOD_STUN" Name="Stun" />
+  <SpellAura Id="13" Category="3" InternalName="SPELL_AURA_MOD_DAMAGE_DONE" Name="Mod Damage Done" />
+  <SpellAura Id="14" Category="3" InternalName="SPELL_AURA_MOD_DAMAGE_TAKEN" Name="Mod Damage Taken" />
+  <SpellAura Id="15" Category="0" InternalName="SPELL_AURA_DAMAGE_SHIELD" Name="Damage Shield" />
+  <SpellAura Id="16" Category="0" InternalName="SPELL_AURA_MOD_STEALTH" Name="Mod Stealth" />
+  <SpellAura Id="17" Category="0" InternalName="SPELL_AURA_MOD_DETECT" Name="Mod Detect" />
+  <SpellAura Id="18" Category="20" InternalName="SPELL_AURA_MOD_INVISIBILITY" Name="Mod Invisibility" />
+  <SpellAura Id="19" Category="20" InternalName="SPELL_AURA_MOD_INVISIBILITY_DETECTION" Name="Mod Invisibility Detection" />
+  <SpellAura Id="20" Category="0" InternalName="" Name="OBS Mod Intellect" />
+  <SpellAura Id="21" Category="0" InternalName="" Name="OBS Mod Spirit" />
+  <SpellAura Id="22" Category="3" InternalName="SPELL_AURA_MOD_RESISTANCE" Name="Mod Resistance" />
+  <SpellAura Id="23" Category="0" InternalName="SPELL_AURA_PERIODIC_TRIGGER_SPELL" Name="Periodic Trigger" />
+  <SpellAura Id="24" Category="15" InternalName="SPELL_AURA_PERIODIC_ENERGIZE" Name="Periodic Energize" />
+  <SpellAura Id="25" Category="0" InternalName="SPELL_AURA_MOD_PACIFY" Name="Pacify" />
+  <SpellAura Id="26" Category="0" InternalName="SPELL_AURA_MOD_ROOT" Name="Root" />
+  <SpellAura Id="27" Category="0" InternalName="SPELL_AURA_MOD_SILENCE" Name="Silence" />
+  <SpellAura Id="28" Category="0" InternalName="SPELL_AURA_REFLECT_SPELLS" Name="Reflect Spells %" />
+  <SpellAura Id="29" Category="5" InternalName="SPELL_AURA_MOD_STAT" Name="Mod Stat" />
+  <SpellAura Id="30" Category="1" InternalName="SPELL_AURA_MOD_SKILL" Name="Mod Skill" />
+  <SpellAura Id="31" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_SPEED" Name="Mod Speed" />
+  <SpellAura Id="32" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_MOUNTED_SPEED" Name="Mod Speed Mounted" />
+  <SpellAura Id="33" Category="0" InternalName="SPELL_AURA_MOD_DECREASE_SPEED" Name="Mod Speed Slow" />
+  <SpellAura Id="34" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_HEALTH" Name="Mod Increase Health" />
+  <SpellAura Id="35" Category="15" InternalName="SPELL_AURA_MOD_INCREASE_ENERGY" Name="Mod Increase Energy" />
+  <SpellAura Id="36" Category="14" InternalName="SPELL_AURA_MOD_SHAPESHIFT" Name="Shapeshift" />
+  <SpellAura Id="37" Category="10" InternalName="SPELL_AURA_EFFECT_IMMUNITY" Name="Immune Effect" />
+  <SpellAura Id="38" Category="11" InternalName="SPELL_AURA_STATE_IMMUNITY" Name="Immune State" />
+  <SpellAura Id="39" Category="3" InternalName="SPELL_AURA_SCHOOL_IMMUNITY" Name="Immune School" />
+  <SpellAura Id="40" Category="3" InternalName="SPELL_AURA_DAMAGE_IMMUNITY" Name="Immune Damage" />
+  <SpellAura Id="41" Category="4" InternalName="SPELL_AURA_DISPEL_IMMUNITY" Name="Immune Dispel Type" />
+  <SpellAura Id="42" Category="0" InternalName="SPELL_AURA_PROC_TRIGGER_SPELL" Name="Proc Trigger Spell" />
+  <SpellAura Id="43" Category="0" InternalName="SPELL_AURA_PROC_TRIGGER_DAMAGE" Name="Proc Trigger Damage" />
+  <SpellAura Id="44" Category="9" InternalName="SPELL_AURA_TRACK_CREATURES" Name="Track Creatures" />
+  <SpellAura Id="45" Category="8" InternalName="SPELL_AURA_TRACK_RESOURCES" Name="Track Resources" />
+  <SpellAura Id="46" Category="0" InternalName="SPELL_AURA_MOD_PARRY_SKILL" Name="Mod Parry Skill" />
+  <SpellAura Id="47" Category="0" InternalName="SPELL_AURA_MOD_PARRY_PERCENT" Name="Mod Parry Percent" />
+  <SpellAura Id="48" Category="0" InternalName="SPELL_AURA_MOD_DODGE_SKILL" Name="Mod Dodge Skill" />
+  <SpellAura Id="49" Category="0" InternalName="SPELL_AURA_MOD_DODGE_PERCENT" Name="Mod Dodge Percent" />
+  <SpellAura Id="50" Category="0" InternalName="SPELL_AURA_MOD_BLOCK_SKILL" Name="Mod Block Skill" />
+  <SpellAura Id="51" Category="0" InternalName="SPELL_AURA_MOD_BLOCK_PERCENT" Name="Mod Block Percent" />
+  <SpellAura Id="52" Category="0" InternalName="SPELL_AURA_MOD_CRIT_PERCENT" Name="Mod Crit Percent" />
+  <SpellAura Id="53" Category="0" InternalName="SPELL_AURA_PERIODIC_LEECH" Name="Periodic Leech" />
+  <SpellAura Id="54" Category="0" InternalName="SPELL_AURA_MOD_HIT_CHANCE" Name="Mod Hit Chance" />
+  <SpellAura Id="55" Category="0" InternalName="SPELL_AURA_MOD_SPELL_HIT_CHANCE" Name="Mod Spell Hit Chance" />
+  <SpellAura Id="56" Category="2" InternalName="SPELL_AURA_TRANSFORM" Name="Transform" />
+  <SpellAura Id="57" Category="0" InternalName="SPELL_AURA_MOD_SPELL_CRIT_CHANCE" Name="Mod Spell Crit Chance" />
+  <SpellAura Id="58" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_SWIM_SPEED" Name="Mod Speed Swim" />
+  <SpellAura Id="59" Category="9" InternalName="SPELL_AURA_MOD_DAMAGE_DONE_CREATURE" Name="Mod Creature Dmg Done" />
+  <SpellAura Id="60" Category="0" InternalName="SPELL_AURA_MOD_PACIFY_SILENCE" Name="Pacify &amp; Silence" />
+  <SpellAura Id="61" Category="0" InternalName="SPELL_AURA_MOD_SCALE" Name="Mod Scale" />
+  <SpellAura Id="62" Category="0" InternalName="SPELL_AURA_PERIODIC_HEALTH_FUNNEL" Name="Periodic Health Funnel" />
+  <SpellAura Id="63" Category="0" InternalName="SPELL_AURA_PERIODIC_MANA_FUNNEL" Name="Periodic Mana Funnel" />
+  <SpellAura Id="64" Category="0" InternalName="SPELL_AURA_PERIODIC_MANA_LEECH" Name="Periodic Mana Leech" />
+  <SpellAura Id="65" Category="0" InternalName="SPELL_AURA_MOD_CASTING_SPEED" Name="Haste - Spells" />
+  <SpellAura Id="66" Category="0" InternalName="SPELL_AURA_FEIGN_DEATH" Name="Feign Death" />
+  <SpellAura Id="67" Category="0" InternalName="SPELL_AURA_MOD_DISARM" Name="Disarm" />
+  <SpellAura Id="68" Category="0" InternalName="SPELL_AURA_MOD_STALKED" Name="Mod Stalked" />
+  <SpellAura Id="69" Category="3" InternalName="SPELL_AURA_SCHOOL_ABSORB" Name="School Absorb" />
+  <SpellAura Id="70" Category="0" InternalName="SPELL_AURA_EXTRA_ATTACKS" Name="Extra Attacks" />
+  <SpellAura Id="71" Category="3" InternalName="SPELL_AURA_MOD_SPELL_CRIT_CHANCE_SCHOOL" Name="Mod School Spell Crit Chance" />
+  <SpellAura Id="72" Category="0" InternalName="SPELL_AURA_MOD_POWER_COST" Name="Mod Power Cost" />
+  <SpellAura Id="73" Category="3" InternalName="SPELL_AURA_MOD_POWER_COST_SCHOOL" Name="Mod School Power Cost" />
+  <SpellAura Id="74" Category="3" InternalName="SPELL_AURA_REFLECT_SPELLS_SCHOOL" Name="Reflect School Spells %" />
+  <SpellAura Id="75" Category="6" InternalName="SPELL_AURA_MOD_LANGUAGE" Name="Mod Language" />
+  <SpellAura Id="76" Category="0" InternalName="SPELL_AURA_FAR_SIGHT" Name="Far Sight" />
+  <SpellAura Id="77" Category="17" InternalName="SPELL_AURA_MECHANIC_IMMUNITY" Name="Immune Mechanic" />
+  <SpellAura Id="78" Category="2" InternalName="SPELL_AURA_MOUNTED" Name="Mounted" />
+  <SpellAura Id="79" Category="3" InternalName="SPELL_AURA_MOD_DAMAGE_DONE" Name="Mod Dmg %" />
+  <SpellAura Id="80" Category="5" InternalName="SPELL_AURA_MOD_STAT" Name="Mod Stat %" />
+  <SpellAura Id="81" Category="3" InternalName="SPELL_AURA_SPLIT_DAMAGE" Name="Split Damage" />
+  <SpellAura Id="82" Category="0" InternalName="SPELL_AURA_WATER_BREATHING" Name="Water Breathing" />
+  <SpellAura Id="83" Category="3" InternalName="SPELL_AURA_MOD_BASE_RESISTANCE" Name="Mod Base Resistance" />
+  <SpellAura Id="84" Category="0" InternalName="SPELL_AURA_MOD_REGEN" Name="Mod Health Regen" />
+  <SpellAura Id="85" Category="15" InternalName="SPELL_AURA_MOD_POWER_REGEN" Name="Mod Power Regen" />
+  <SpellAura Id="86" Category="18" InternalName="SPELL_AURA_CHANNEL_DEATH_ITEM" Name="Create Death Item" />
+  <SpellAura Id="87" Category="3" InternalName="SPELL_AURA_MOD_DAMAGE_TAKEN" Name="Mod Dmg % Taken" />
+  <SpellAura Id="88" Category="0" InternalName="SPELL_AURA_MOD_REGEN" Name="Mod Health Regen Percent" />
+  <SpellAura Id="89" Category="0" InternalName="SPELL_AURA_PERIODIC_DAMAGE_PERCENT" Name="Periodic Damage Percent" />
+  <SpellAura Id="90" Category="3" InternalName="SPELL_AURA_MOD_RESIST_CHANCE" Name="Mod Resist Chance" />
+  <SpellAura Id="91" Category="0" InternalName="SPELL_AURA_MOD_DETECT_RANGE" Name="Mod Detect Range" />
+  <SpellAura Id="92" Category="0" InternalName="SPELL_AURA_PREVENTS_FLEEING" Name="Prevent Fleeing" />
+  <SpellAura Id="93" Category="0" InternalName="SPELL_AURA_MOD_UNATTACKABLE" Name="Mod Uninteractible" />
+  <SpellAura Id="94" Category="0" InternalName="SPELL_AURA_INTERRUPT_REGEN" Name="Interrupt Regen" />
+  <SpellAura Id="95" Category="0" InternalName="SPELL_AURA_GHOST" Name="Ghost" />
+  <SpellAura Id="96" Category="0" InternalName="SPELL_AURA_SPELL_MAGNET" Name="Spell Magnet" />
+  <SpellAura Id="97" Category="15" InternalName="SPELL_AURA_MANA_SHIELD" Name="Mana Shield" />
+  <SpellAura Id="98" Category="1" InternalName="SPELL_AURA_MOD_SKILL_TALENT" Name="Mod Skill Talent" />
+  <SpellAura Id="99" Category="0" InternalName="SPELL_AURA_MOD_ATTACK_POWER" Name="Mod Attack Power" />
+  <SpellAura Id="100" Category="0" InternalName="SPELL_AURA_AURAS_VISIBLE" Name="Auras Visible" />
+  <SpellAura Id="101" Category="3" InternalName="SPELL_AURA_MOD_RESISTANCE_PCT" Name="Mod Resistance %" />
+  <SpellAura Id="102" Category="9" InternalName="SPELL_AURA_MOD_CREATURE_ATTACK_POWER" Name="Mod Creature Attack Power" />
+  <SpellAura Id="103" Category="0" InternalName="SPELL_AURA_MOD_TOTAL_THREAT" Name="Mod Total Threat (Fade)" />
+  <SpellAura Id="104" Category="0" InternalName="SPELL_AURA_WATER_WALK" Name="Water Walk" />
+  <SpellAura Id="105" Category="0" InternalName="SPELL_AURA_FEATHER_FALL" Name="Feather Fall" />
+  <SpellAura Id="106" Category="0" InternalName="SPELL_AURA_HOVER" Name="Hover" />
+  <SpellAura Id="107" Category="21" InternalName="SPELL_AURA_ADD_FLAT_MODIFIER" Name="Add Flat Modifier" />
+  <SpellAura Id="108" Category="21" InternalName="SPELL_AURA_ADD_PCT_MODIFIER" Name="Add % Modifier" />
+  <SpellAura Id="109" Category="22" InternalName="SPELL_AURA_ADD_TARGET_TRIGGER" Name="Add Class Target Trigger" />
+  <SpellAura Id="110" Category="15" InternalName="SPELL_AURA_MOD_POWER_REGEN_PERCENT" Name="Mod Power Regen %" />
+  <SpellAura Id="111" Category="22" InternalName="SPELL_AURA_ADD_CASTER_HIT_TRIGGER" Name="Add Class Caster Hit Trigger" />
+  <SpellAura Id="112" Category="23" InternalName="SPELL_AURA_OVERRIDE_CLASS_SCRIPTS" Name="Override Class Scripts" />
+  <SpellAura Id="113" Category="3" InternalName="SPELL_AURA_MOD_RANGED_DAMAGE_TAKEN" Name="Mod Ranged Dmg Taken" />
+  <SpellAura Id="114" Category="3" InternalName="SPELL_AURA_MOD_RANGED_DAMAGE_TAKEN_PCT" Name="Mod Ranged % Dmg Taken" />
+  <SpellAura Id="115" Category="3" InternalName="SPELL_AURA_MOD_HEALING" Name="Mod Healing" />
+  <SpellAura Id="116" Category="0" InternalName="SPELL_AURA_IGNORE_REGEN_INTERRUPT" Name="Regen During Combat" />
+  <SpellAura Id="117" Category="17" InternalName="SPELL_AURA_MOD_MECHANIC_RESISTANCE" Name="Mod Mechanic Resistance" />
+  <SpellAura Id="118" Category="3" InternalName="SPELL_AURA_MOD_HEALING_PCT" Name="Mod Healing %" />
+  <SpellAura Id="119" Category="0" InternalName="SPELL_AURA_SHARE_PET_TRACKING" Name="Share Pet Tracking" />
+  <SpellAura Id="120" Category="0" InternalName="SPELL_AURA_UNTRACKABLE" Name="Untrackable" />
+  <SpellAura Id="121" Category="0" InternalName="SPELL_AURA_EMPATHY" Name="Empathy (Lore, whatever)" />
+  <SpellAura Id="122" Category="0" InternalName="SPELL_AURA_MOD_OFFHAND_DAMAGE_PCT" Name="Mod Offhand Dmg %" />
+  <SpellAura Id="123" Category="0" InternalName="SPELL_AURA_MOD_POWER_COST_PCT" Name="Mod Power Cost %" />
+  <SpellAura Id="124" Category="0" InternalName="SPELL_AURA_MOD_RANGED_ATTACK_POWER" Name="Mod Ranged Attack Power" />
+  <SpellAura Id="125" Category="0" InternalName="SPELL_AURA_MOD_MELEE_DAMAGE_TAKEN" Name="Mod Melee Dmg Taken" />
+  <SpellAura Id="126" Category="0" InternalName="SPELL_AURA_MOD_MELEE_DAMAGE_TAKEN_PCT" Name="Mod Melee % Dmg Taken" />
+  <SpellAura Id="127" Category="0" InternalName="SPELL_AURA_RANGED_ATTACK_POWER_ATTACKER_BONUS" Name="Rngd Atk Pwr Attckr Bonus" />
+  <SpellAura Id="128" Category="0" InternalName="SPELL_AURA_MOD_POSSESS_PET" Name="Mod Possess Pet" />
+  <SpellAura Id="129" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_SPEED_ALWAYS" Name="Mod Speed Always" />
+  <SpellAura Id="130" Category="0" InternalName="SPELL_AURA_MOD_MOUNTED_SPEED_ALWAYS" Name="Mod Mounted Speed Always" />
+  <SpellAura Id="131" Category="9" InternalName="SPELL_AURA_MOD_CREATURE_RANGED_ATTACK_POWER" Name="Mod Creature Ranged Attack Power" />
+  <SpellAura Id="132" Category="15" InternalName="SPELL_AURA_MOD_INCREASE_ENERGY_PERCENT" Name="Mod Increase Energy %" />
+  <SpellAura Id="133" Category="0" InternalName="SPELL_AURA_MOD_INCREASE_HEALTH_PERCENT" Name="Mod Max Health %" />
+  <SpellAura Id="134" Category="0" InternalName="SPELL_AURA_MOD_MANA_REGEN_INTERRUPT" Name="Mod Interrupted Mana Regen" />
+  <SpellAura Id="135" Category="3" InternalName="SPELL_AURA_MOD_HEALING_DONE" Name="Mod Healing Done" />
+  <SpellAura Id="136" Category="3" InternalName="SPELL_AURA_MOD_HEALING_DONE_PERCENT" Name="Mod Healing Done %" />
+  <SpellAura Id="137" Category="5" InternalName="SPELL_AURA_MOD_TOTAL_STAT_PERCENTAGE" Name="Mod Total Stat %" />
+  <SpellAura Id="138" Category="0" InternalName="SPELL_AURA_MOD_HASTE" Name="Haste - Melee" />
+  <SpellAura Id="139" Category="25" InternalName="SPELL_AURA_FORCE_REACTION" Name="Force Reaction" />
+  <SpellAura Id="140" Category="0" InternalName="SPELL_AURA_MOD_RANGED_HASTE" Name="Haste - Ranged" />
+  <SpellAura Id="141" Category="0" InternalName="SPELL_AURA_MOD_RANGED_AMMO_HASTE" Name="Haste - Ranged (Ammo Only)" />
+  <SpellAura Id="142" Category="3" InternalName="SPELL_AURA_MOD_BASE_RESISTANCE_PCT" Name="Mod Base Resistance %" />
+  <SpellAura Id="143" Category="3" InternalName="SPELL_AURA_MOD_RESISTANCE_EXCLUSIVE" Name="Mod Resistance Exclusive" />
+  <SpellAura Id="144" Category="0" InternalName="SPELL_AURA_SAFE_FALL" Name="Safe Fall" />
+  <SpellAura Id="145" Category="0" InternalName="SPELL_AURA_CHARISMA" Name="Charisma" />
+  <SpellAura Id="146" Category="0" InternalName="SPELL_AURA_PERSUADED" Name="Persuaded" />
+  <SpellAura Id="147" Category="26" InternalName="SPELL_AURA_ADD_CREATURE_IMMUNITY" Name="Add Creature Immunity" />
+  <SpellAura Id="148" Category="0" InternalName="SPELL_AURA_RETAIN_COMBO_POINTS" Name="Retain Combo Points" />
+	<SpellAura Id="149" Category="0" InternalName="SPELL_AURA_RESIST_PUSHBACK" Name="Resist Pushback" />
+	<SpellAura Id="150" Category="0" InternalName="SPELL_AURA_MOD_SHIELD_BLOCK_PCT" Name="Mod Shield Block %" />
+	<SpellAura Id="151" Category="0" InternalName="SPELL_AURA_TRACK_STEALTHED" Name="Track Stealthed" />
+	<SpellAura Id="152" Category="0" InternalName="SPELL_AURA_MOD_DETECTED_RANGE" Name="Mod Detected Range" />
+	<SpellAura Id="153" Category="0" InternalName="SPELL_AURA_SPLIT_DAMAGE_FLAT" Name="Split Damage Flat" />
+	<SpellAura Id="154" Category="0" InternalName="SPELL_AURA_MOD_STEALTH_LEVEL" Name="Mod Stealth Level" />
+	<SpellAura Id="155" Category="0" InternalName="SPELL_AURA_MOD_WATER_BREATHING" Name="Mod Water Breathing" />
+	<SpellAura Id="156" Category="0" InternalName="SPELL_AURA_MOD_REPUTATION_ADJUST" Name="Mod Reputation Adjust" />
+	<SpellAura Id="157" Category="0" InternalName="SPELL_AURA_PET_DAMAGE_MULTI" Name="Pet Damage Multi" />
+	<SpellAura Id="158" Category="0" InternalName="SPELL_AURA_MOD_SHIELD_BLOCK_VALUE" Name="Mod Shield Block Value" />
+	<SpellAura Id="159" Category="0" InternalName="SPELL_AURA_NO_PVP_CREDIT" Name="Retain Combo Points" />
+	<SpellAura Id="160" Category="0" InternalName="SPELL_AURA_MOD_SIDE_REAR_PBAE_DAMAGE_TAKEN" Name="Mod Side/Rear PBAE Damage Taken" />
+	<SpellAura Id="189" Category="0" InternalName="SPELL_AURA_MOD_RATING" Name="Mod Rating" />
+	<SpellAura Id="226" Category="0" InternalName="SPELL_AURA_PERIODIC_AGGRO" Name="Periodic Aggro" />
+</SpellAuras>

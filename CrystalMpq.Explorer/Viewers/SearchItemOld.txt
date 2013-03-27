@@ -1,0 +1,84 @@
+﻿Since it seems e.StartIndex is already "the next item", i back up the old algorithm…
+
+private void listView_SearchForVirtualItem(object sender, SearchForVirtualItemEventArgs e)
+{
+	// Note 1: The IsPrefix property of SearchForVirtualItemEventArgs seems to be false for keyboard prefix search events…
+	// Since this is the only use we'll have of this method, we can assume this is always a prefix search.
+	// Note 2: We'll assume that we are always searching forward. (This is important for "proximity" search)
+	// Note 3: Now that I think about it, maybe I can merge the two "separate" phases of the search into one loop.
+	// But this would lead to an algorithm somewhat different from a regular binary search. (If it isn't already… ;))
+
+	if (rootNode == null) return;
+
+	// Since we are processing filenames, the invariant culture will be used here.
+	var comparer = CultureInfo.InvariantCulture.CompareInfo;
+	var nodes = rootNode.Nodes;
+	// Assuming the nodes re sorted alphabetically (they should be !), the binary search is the most efficient choice.
+	int prefixLength = e.Text.Length;
+	int low, high; // These will represent the dynamic search range.
+	int difference;
+	bool found = false; // Indicates whether a match has been found
+
+	// Match the prefix against the start item.
+	difference = comparer.Compare(nodes[e.StartIndex].Text, 0, prefixLength, e.Text, 0, prefixLength, CompareOptions.OrdinalIgnoreCase);
+	// Depending on the prefix comparison, we can either adjust search parameters or even terminate the search. ;)
+	if (difference == 0)
+	{
+		// If this was a match, we check the next item for a match
+		if (e.StartIndex + 1 < nodes.Count && comparer.IsPrefix(nodes[e.StartIndex + 1].Text, e.Text, CompareOptions.OrdinalIgnoreCase))
+		{
+			// If the test is successful, then the next item was the item we were looking for ! :)
+			e.Index = e.StartIndex + 1;
+			return;
+		}
+		// If the next item was not an option, then we check the previous item the same way
+		else if (e.StartIndex > 0 && comparer.IsPrefix(nodes[e.StartIndex - 1].Text, e.Text, CompareOptions.OrdinalIgnoreCase))
+		{
+			// If the test was successful, we only know the previous item is a potential candidate.
+			low = 0;
+			high = e.Index = e.StartIndex - 1;
+			found = true;
+		}
+		else
+		{
+			// If both comparison failed, then there certainly can be no match other than the current item.
+			// (Still assuming items are sorted alphabetically, remember ?)
+			e.Index = e.StartIndex;
+			return;
+		}
+	}
+	else if (difference > 0)
+	{
+		// If prefix may only be found before the start item, search before
+		low = 0;
+		if (e.StartIndex > 0) high = e.StartIndex - 1;
+		else return; // If start item was the first item, then the search failed.
+	}
+	else
+	{
+		// If prefix may only be found after the start item, search after
+		if (e.StartIndex + 1 < nodes.Count) low = e.StartIndex + 1;
+		else return; // If start item was the last item, then the search failed.
+		high = nodes.Count - 1;
+	}
+
+	// In this algorithm, we may have low == high, but this is a normal (final) case.
+	do
+	{
+		int pivot = (low + high) / 2;
+		string text = nodes[pivot].Text;
+
+		difference = comparer.Compare(text, 0, Math.Min(prefixLength, text.Length), e.Text, 0, prefixLength, CompareOptions.OrdinalIgnoreCase);
+
+		if (difference == 0)
+		{
+			// Once a match is found, adjust the search parameters accordingly
+			high = (e.Index = pivot) - 1;
+			found = true;
+		}
+		else if (difference > 0)
+			high = pivot - 1;
+		else
+			low = pivot + 1;
+	} while (low <= high);
+}

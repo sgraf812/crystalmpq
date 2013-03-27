@@ -1,0 +1,131 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B181E022-3069-42E2-A659-41ED17215807}"
+	ProjectSection(SolutionItems) = preProject
+		AssemblyInfo.Common.cs = AssemblyInfo.Common.cs
+		CrystalMpq.snk = CrystalMpq.snk
+		License.txt = License.txt
+		Readme.htm = Readme.htm
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq", "CrystalMpq\CrystalMpq.csproj", "{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.Explorer.Extensibility", "CrystalMpq.Explorer.Extensibility\CrystalMpq.Explorer.Extensibility.csproj", "{3353A39B-7B2F-4A87-860C-7D00881F792D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.Explorer", "CrystalMpq.Explorer\CrystalMpq.Explorer.csproj", "{60C14A78-1E0A-4F96-8A32-525213F5FD56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.WoW", "CrystalMpq.WoW\CrystalMpq.WoW.csproj", "{A81D6E00-66E6-42CC-91D5-B922E8928C3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.Explorer.BaseViewers", "CrystalMpq.Explorer.BaseViewers\CrystalMpq.Explorer.BaseViewers.csproj", "{960554AB-B9FF-4F05-83BD-B00FCAE420A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.DataFormats", "CrystalMpq.DataFormats\CrystalMpq.DataFormats.csproj", "{3D8577CD-1B39-4F6A-B358-34FE04D5379B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.Explorer.AudioVideo", "CrystalMpq.Explorer.AudioVideo\CrystalMpq.Explorer.AudioVideo.csproj", "{2AD6A3A0-B936-4CBA-8789-771C4EA64277}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbcViewer", "DbcViewer\DbcViewer.csproj", "{73FC46C3-A032-4C39-85D2-5F0B209CE756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWMapExplorer", "WoWMapExplorer\WoWMapExplorer.csproj", "{87333C7F-09FB-416B-BC90-4708D9D3DB09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWSpellViewer", "WoWSpellViewer\WoWSpellViewer.csproj", "{4DE7F455-535E-40A7-BAE1-83CA4DCA363A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.WoWDatabases", "CrystalMpq.WoWDatabases\CrystalMpq.WoWDatabases.csproj", "{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.WoW.Windows.Forms", "CrystalMpq.WoW.Windows.Forms\CrystalMpq.WoW.Windows.Forms.csproj", "{E16A1D77-E293-4E26-A1EB-CD90C37A3913}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalMpq.FileExtractor", "CrystalMpq.FileExtractor\CrystalMpq.FileExtractor.csproj", "{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release .NET 3.5|Any CPU = Release .NET 3.5|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A4A3C8-5F65-4112-B147-31E2AA1A1E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3353A39B-7B2F-4A87-860C-7D00881F792D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C14A78-1E0A-4F96-8A32-525213F5FD56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81D6E00-66E6-42CC-91D5-B922E8928C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960554AB-B9FF-4F05-83BD-B00FCAE420A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8577CD-1B39-4F6A-B358-34FE04D5379B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AD6A3A0-B936-4CBA-8789-771C4EA64277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73FC46C3-A032-4C39-85D2-5F0B209CE756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87333C7F-09FB-416B-BC90-4708D9D3DB09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE7F455-535E-40A7-BAE1-83CA4DCA363A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE7F455-535E-40A7-BAE1-83CA4DCA363A}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{4DE7F455-535E-40A7-BAE1-83CA4DCA363A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8FDBDA-0AFD-4A16-BB9E-09CAB77D765D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E16A1D77-E293-4E26-A1EB-CD90C37A3913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Release .NET 3.5|Any CPU.ActiveCfg = Release .NET 3.5|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Release .NET 3.5|Any CPU.Build.0 = Release .NET 3.5|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC731901-55F0-4DB0-ABB8-A8EDA67B0FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = CrystalMpq.Explorer\CrystalMpq.Explorer.csproj
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CrystalMpq.Explorer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ViewerAssociations" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;.txt|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.ini|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.wtf|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.lst|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.sbt|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.toc|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.css|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.htm|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.html|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.xml|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.lua|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.js|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.xsl|CrystalMpq.Explorer.Viewers.TextViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.ttf|CrystalMpq.Explorer.Viewers.FontViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.bmp|CrystalMpq.Explorer.Viewers.BitmapViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.jpg|CrystalMpq.Explorer.Viewers.BitmapViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.jpeg|CrystalMpq.Explorer.Viewers.BitmapViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.png|CrystalMpq.Explorer.Viewers.BitmapViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.gif|CrystalMpq.Explorer.Viewers.BitmapViewer, CrystalMpqExplorer, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.blp|CrystalMpq.Explorer.BaseViewers.BLPViewer, CrystalMpq.Explorer.BaseViewers, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.dbc|CrystalMpq.Explorer.BaseViewers.ClientDatabaseViewer, CrystalMpq.Explorer.BaseViewers, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.wav|CrystalMpq.Explorer.AudioVideo.MediaPlayer, CrystalMpq.Explorer.AudioVideo, Version=2.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.mp3|CrystalMpq.Explorer.AudioVideo.MediaPlayer, CrystalMpq.Explorer.AudioVideo, Version=2.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.ogg|CrystalMpq.Explorer.AudioVideo.MediaPlayer, CrystalMpq.Explorer.AudioVideo, Version=2.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+  &lt;string&gt;.avi|CrystalMpq.Explorer.AudioVideo.MediaPlayer, CrystalMpq.Explorer.AudioVideo, Version=2.5.0.0, Culture=neutral, PublicKeyToken=null&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="ViewerBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SlateGray</Value>
+    </Setting>
+    <Setting Name="TextViewerDefaultEncoding" Type="System.String" Scope="User">
+      <Value Profile="(Default)">utf-8</Value>
+    </Setting>
+    <Setting Name="PluginsDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Plugins</Value>
+    </Setting>
+    <Setting Name="ExtractionDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ExtractionOverwriteFiles" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExtractionRecurse" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

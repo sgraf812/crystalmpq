@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SpellEffects>
+  <SpellEffect Id="0" Name="None" />
+  <SpellEffect Id="1" Name="Instakill" />
+  <SpellEffect Id="2" Name="School Damage" />
+  <SpellEffect Id="3" Name="Dummy" />
+  <SpellEffect Id="4" Name="Portal Teleport" />
+  <SpellEffect Id="5" Name="Teleport Units" />
+  <SpellEffect Id="6" Name="Apply Aura" />
+  <SpellEffect Id="7" Name="Environmental Damage" />
+  <SpellEffect Id="8" Name="Power Drain" />
+  <SpellEffect Id="9" Name="Health Leech" />
+  <SpellEffect Id="10" Name="Heal" />
+  <SpellEffect Id="11" Name="Bind" />
+  <SpellEffect Id="12" Name="Portal" />
+  <SpellEffect Id="13" Name="Ritual Base" />
+  <SpellEffect Id="14" Name="Ritual Specialize" />
+  <SpellEffect Id="15" Name="Ritual Activate Portal" />
+  <SpellEffect Id="16" Name="Quest Complete" />
+  <SpellEffect Id="17" Name="Weapon Damage + (noschool)" />
+  <SpellEffect Id="18" Name="Resurrect" />
+  <SpellEffect Id="19" Name="Extra Attacks" />
+  <SpellEffect Id="20" Name="Dodge" />
+  <SpellEffect Id="21" Name="Evade" />
+  <SpellEffect Id="22" Name="Parry" />
+  <SpellEffect Id="23" Name="Block" />
+  <SpellEffect Id="24" Name="Create Item" />
+  <SpellEffect Id="25" Name="Weapon" />
+  <SpellEffect Id="26" Name="Defense" />
+  <SpellEffect Id="27" Name="Persistent Area Aura" />
+  <SpellEffect Id="28" Name="Summon" />
+  <SpellEffect Id="29" Name="Leap" />
+  <SpellEffect Id="30" Name="Energize" />
+  <SpellEffect Id="31" Name="Weapon % Dmg" />
+  <SpellEffect Id="32" Name="Trigger Missile" />
+  <SpellEffect Id="33" Name="Open Lock" />
+  <SpellEffect Id="35" Name="Apply Area Aura" />
+  <SpellEffect Id="36" Name="Learn Spell" />
+  <SpellEffect Id="37" Name="Spell Defense" />
+  <SpellEffect Id="38" Name="Dispel" />
+  <SpellEffect Id="39" Name="Language" />
+  <SpellEffect Id="40" Name="Dual Wield" />
+  <SpellEffect Id="41" Name="Summon Wild" />
+  <SpellEffect Id="42" Name="Summon Guardian" />
+  <SpellEffect Id="44" Name="Skill Step" />
+  <SpellEffect Id="46" Name="Spawn" />
+  <SpellEffect Id="47" Name="Spell Cast UI" />
+  <SpellEffect Id="48" Name="Stealth" />
+  <SpellEffect Id="49" Name="Detect" />
+  <SpellEffect Id="50" Name="Summon Object" />
+  <SpellEffect Id="51" Name="Force Critical Hit" />
+  <SpellEffect Id="52" Name="Guarantee Hit" />
+  <SpellEffect Id="53" Name="Enchant Item Permanent" />
+  <SpellEffect Id="54" Name="Enchant Item Temporary" />
+  <SpellEffect Id="55" Name="Tame Creature" />
+  <SpellEffect Id="56" Name="Summon Pet" />
+  <SpellEffect Id="57" Name="Learn Pet Spell" />
+  <SpellEffect Id="58" Name="Weapon Damage +" />
+  <SpellEffect Id="59" Name="Open Lock (Item)" />
+  <SpellEffect Id="60" Name="Proficiency" />
+  <SpellEffect Id="61" Name="Send Event" />
+  <SpellEffect Id="62" Name="Power Burn" />
+  <SpellEffect Id="63" Name="Threat" />
+  <SpellEffect Id="64" Name="Trigger Spell" />
+  <SpellEffect Id="65" Name="Health Funnel" />
+  <SpellEffect Id="66" Name="Power Funnel" />
+  <SpellEffect Id="67" Name="Heal Max Health" />
+  <SpellEffect Id="68" Name="Interrupt Cast" />
+  <SpellEffect Id="69" Name="Distract" />
+  <SpellEffect Id="70" Name="Pull" />
+  <SpellEffect Id="71" Name="Pickpocket" />
+  <SpellEffect Id="72" Name="Add Farsight" />
+  <SpellEffect Id="73" Name="Summon Possessed" />
+  <SpellEffect Id="74" Name="Summon Totem" />
+  <SpellEffect Id="75" Name="Heal Mechanical" />
+  <SpellEffect Id="76" Name="Summon Object (Wild)" />
+  <SpellEffect Id="77" Name="Script Effect" />
+  <SpellEffect Id="78" Name="Attack" />
+  <SpellEffect Id="79" Name="Sanctuary" />
+  <SpellEffect Id="80" Name="Add Combo Points" />
+  <SpellEffect Id="81" Name="Create House" />
+  <SpellEffect Id="82" Name="Bind Sight" />
+  <SpellEffect Id="83" Name="Duel" />
+  <SpellEffect Id="84" Name="Stuck" />
+  <SpellEffect Id="85" Name="Summon Player" />
+  <SpellEffect Id="86" Name="Activate Object" />
+  <SpellEffect Id="87" Name="Summon Totem (slot 1)" />
+  <SpellEffect Id="88" Name="Summon Totem (slot 2)" />
+  <SpellEffect Id="89" Name="Summon Totem (slot 3)" />
+  <SpellEffect Id="90" Name="Summon Totem (slot 4)" />
+  <SpellEffect Id="91" Name="Threat (All)" />
+  <SpellEffect Id="92" Name="Enchant Held Item" />
+  <SpellEffect Id="93" Name="Summon Phantasm" />
+  <SpellEffect Id="94" Name="Self Resurrect" />
+  <SpellEffect Id="95" Name="Skinning" />
+  <SpellEffect Id="96" Name="Charge" />
+  <SpellEffect Id="97" Name="Summon Critter" />
+  <SpellEffect Id="98" Name="Knock Back" />
+  <SpellEffect Id="99" Name="Disenchant" />
+  <SpellEffect Id="100" Name="Inebriate" />
+  <SpellEffect Id="101" Name="Feed Pet" />
+  <SpellEffect Id="102" Name="Dismiss Pet" />
+  <SpellEffect Id="103" Name="Reputation" />
+  <SpellEffect Id="104" Name="Summon Object (slot 1)" />
+  <SpellEffect Id="105" Name="Summon Object (slot 2)" />
+  <SpellEffect Id="106" Name="Summon Object (slot 3)" />
+  <SpellEffect Id="107" Name="Summon Object (slot 4)" />
+  <SpellEffect Id="108" Name="Dispel Mechanic" />
+  <SpellEffect Id="109" Name="Summon Dead Pet" />
+  <SpellEffect Id="110" Name="Destroy All Totems" />
+  <SpellEffect Id="111" Name="Durability Damage" />
+  <SpellEffect Id="112" Name="Summon Demon" />
+	
+	<SpellEffect Id="113" Name="Resurrect Flat" />
+	<SpellEffect Id="114" Name="Attack Me" />
+	<SpellEffect Id="115" Name="Durability Damage %" />
+	<SpellEffect Id="116" Name="Skin Player Corpse" />
+	<SpellEffect Id="117" Name="Spirit Heal" />
+	<SpellEffect Id="118" Name="Skill" />
+	<SpellEffect Id="119" Name="Apply Pet Aura" />
+	<SpellEffect Id="120" Name="Teleport Graveyard" />
+	<SpellEffect Id="121" Name="Normalized Weapon Damage +" />
+	<SpellEffect Id="127" Name="Prospecting" />
+	<SpellEffect Id="128" Name="Apply Mob Status Aura" />
+</SpellEffects>
