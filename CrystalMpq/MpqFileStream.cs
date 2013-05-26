@@ -317,7 +317,7 @@ namespace CrystalMpq
 		{
 			byte[] patchData;
 
-			if (patchLength < patchHeader.PatchLength) patchData = UnpackRle();
+			if (patchLength < patchHeader.PatchLength) patchData = UnpackRle(patchLength);
 			else
 			{
 				patchData = new byte[patchLength];
@@ -378,36 +378,36 @@ namespace CrystalMpq
 			}
 		}
 
-		private unsafe byte[] UnpackRle()
+		private unsafe byte[] UnpackRle(uint compressedLength)
 		{
-			uint length = this.ReadUInt32();
+            uint length = this.ReadUInt32();
+		    compressedLength -= 4;
+            var decompressed = new byte[length];
 
-			var decompressionBuffer = new byte[length];
+            var compressed = new byte[compressedLength];
+            if (Read(compressed, 0, compressed.Length) != compressed.Length) throw new EndOfStreamException();
 
 			int i = 0;
+		    int j = 0;
+            while (i < compressed.Length && j < decompressed.Length)
+            {
+                int b = compressed[i++];
 
-			while (i < length)
-			{
-				int @byte = ReadByte();
-
-				if (@byte == -1) goto Finish;
-
-				if ((@byte & 0x80) != 0)
-				{
-					for (int j = (@byte & 0x7F) + 1; j-- != 0 && i < length; )
-					{
-						@byte = ReadByte();
-
-						if (@byte == -1) goto Finish;
-
-						decompressionBuffer[i++] = (byte)@byte;
-					}
-				}
-				else i += @byte + 1;
-			}
-
-		Finish: ;
-			return decompressionBuffer;
+                var isRepeatCount = (b & 0x80) != 0;
+                if (isRepeatCount)
+                {
+                    var repeatCount = (b & 0x7F) + 1;
+                    for (var k = 0; k < repeatCount; ++k)
+                    {
+                        // I don't think this check is necessary... probably leaving it out some day in the future
+                        if (i >= compressed.Length && j >= decompressed.Length)
+                            break;
+                        decompressed[j++] = compressed[i++];
+                    }
+                }
+                else j += b + 1;
+            }
+		    return decompressed;
 		}
 
 		public sealed override bool CanRead { get { return true; } }
