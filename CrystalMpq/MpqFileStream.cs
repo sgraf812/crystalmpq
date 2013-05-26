@@ -328,7 +328,7 @@ namespace CrystalMpq
 			{
 				var bsdiffHeader = (PatchBsdiff40Header*)patchDataPointer;
 
-				if (!BitConverter.IsLittleEndian) CommonMethods.SwapBytes((ulong*)patchDataPointer, sizeof(PatchBsdiff40Header) >> 3);
+			    if (!BitConverter.IsLittleEndian) CommonMethods.SwapBytes((ulong*)patchDataPointer, sizeof(PatchBsdiff40Header)/sizeof(ulong));
 
 				if (bsdiffHeader->Signature != 0x3034464649445342 /* 'BSDIFF40' */) throw new InvalidDataException(ErrorMessages.GetString("Bsd0PatchHeaderInvalidSignature"));
 
@@ -336,45 +336,46 @@ namespace CrystalMpq
 				var differenceBlock = (byte*)controlBlock + bsdiffHeader->ControlBlockLength;
 				var extraBlock = differenceBlock + bsdiffHeader->DifferenceBlockLength;
 
-				if (!BitConverter.IsLittleEndian) CommonMethods.SwapBytes(controlBlock, bsdiffHeader->ControlBlockLength >> 2);
+				if (!BitConverter.IsLittleEndian) CommonMethods.SwapBytes(controlBlock, bsdiffHeader->ControlBlockLength/sizeof(uint));
 
-				var patchBuffer = new byte[bsdiffHeader->PatchedFileSize];
+				var patchedBuffer = new byte[bsdiffHeader->PatchedFileSize];
 
-				fixed (byte* originalDataPointer = originalData)
-				fixed (byte* patchBufferPointer = patchBuffer)
-				{
-					var sourcePointer = originalDataPointer;
-					var destinationPointer = patchBufferPointer;
-					int sourceCount = originalData.Length;
-					int destinationCount = patchBuffer.Length;
+				uint o = 0;
+				uint n = 0;
+                try
+                {
+                    while (n < patchedBuffer.Length)
+                    {
+                        uint differenceLength = *controlBlock++;
+                        uint extraLength = *controlBlock++;
+                        uint sourceOffset = *controlBlock++;
 
-					while (destinationCount != 0)
-					{
-						uint differenceLength = *controlBlock++;
-						uint extraLength = *controlBlock++;
-						uint sourceOffset = *controlBlock++;
+                        // Apply the difference patch (Patched Data = Original data + Difference data)
+                        for (uint i = 0; i < differenceLength; i++, n++, o++)
+                        {
+                            patchedBuffer[n] = differenceBlock[i];
+                            if (o < originalData.Length)
+                                patchedBuffer[n] += originalData[o];
+                        }
+                        differenceBlock += differenceLength;
 
-						if (differenceLength > destinationCount) throw new InvalidDataException(ErrorMessages.GetString("Bsd0PatchInvalidData"));
-						destinationCount = (int)(destinationCount - differenceLength);
+                        // Apply the extra data patch (New data)
+                        for (int e = 0; e < extraLength; e++) 
+                            patchedBuffer[n++] = extraBlock[e];
+                        extraBlock += extraLength;
 
-						// Apply the difference patch (Patched Data = Original data + Difference data)
-						for (; differenceLength-- != 0; destinationPointer++, sourcePointer++)
-						{
-							*destinationPointer = *differenceBlock++;
-							if (sourceCount > 0) *destinationPointer += *sourcePointer;
-						}
+                        unchecked
+                        {
+                            o += (sourceOffset & 0x80000000) != 0 ? (0x80000000 - sourceOffset) : sourceOffset;
+                        }
+                    }
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    throw new InvalidDataException(ErrorMessages.GetString("Bsd0PatchInvalidData"), ex);
+                }
 
-						if (extraLength > destinationCount) throw new InvalidDataException(ErrorMessages.GetString("Bsd0PatchInvalidData"));
-						destinationCount = (int)(destinationCount - extraLength);
-
-						// Apply the extra data patch (New data)
-						for (; extraLength-- != 0; ) *destinationPointer++ = *extraBlock++;
-
-						sourcePointer += (sourceOffset & 0x80000000) != 0 ? unchecked((int)(0x80000000 - sourceOffset)) : (int)sourceOffset;
-					}
-				}
-
-				return patchBuffer;
+				return patchedBuffer;
 			}
 		}
 
