@@ -25,4 +25,4 @@ using System;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 
-[assembly: AssemblyFileVersion("1.7.1.0")]
+[assembly: AssemblyFileVersion("1.7.2.0")]

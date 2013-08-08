@@ -20,6 +20,7 @@ namespace CrystalMpq
 	/// This class is used to read MPQ archives.
 	/// It gives you access to all files contained in the archive.
 	/// </summary>
+	[DebuggerDisplay("{Filename}")]
 	public partial class MpqArchive : IDisposable
 	{
 		#region MpqFileEnumerator Structure
@@ -140,6 +141,11 @@ namespace CrystalMpq
 		private readonly ResolveStreamEventArgs resolveStreamEventArgs;
 		private readonly object syncRoot;
 
+	    /// <summary>
+	    /// File name of the archive if loaded from a file, else null.
+	    /// </summary>
+	    public string Filename { get; private set; }
+
 		/// <summary>Occurs when the base file for a given <see cref="MpqFile"/> should be resolved.</summary>
 		/// <remarks>
 		/// This event will be raised when opening an <see cref="MpqFile"/> which is a patch file.
@@ -184,7 +190,7 @@ namespace CrystalMpq
 			: this()
 		{
 			if (filename == null) throw new ArgumentNullException("filename");
-
+		    Filename = filename;
 			OpenInternal(File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), shouldParseListFile);
 		}
 

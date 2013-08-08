@@ -9,12 +9,13 @@
 #endregion
 
 using System;
+using System.Diagnostics;
 using System.IO;
-using System.Threading;
 
 namespace CrystalMpq
 {
 	/// <summary>This class represents a file stored in an <see cref="MpqArchive"/>.</summary>
+	[DebuggerDisplay("{Name}")]
 	public class MpqFile
 	{
 		private readonly MpqArchive archive;
