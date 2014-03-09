@@ -155,6 +155,15 @@ namespace CrystalMpq.WoW
 			return new WoWInstallation(path);
 		}
 
+	    /// <summary>
+	    /// Initializes a new <see cref="WoWInstallation"/> pointing at the supplied path.
+	    /// </summary>
+	    /// <returns>A <see cref="WoWInstallation"/></returns>
+	    public static WoWInstallation AssumeAt(string path)
+	    {
+	        return new WoWInstallation(path);
+	    }
+
 	    private static RegistryKey FindWowRegistryKey()
 	    {
 	        return Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Blizzard Entertainment\World of Warcraft") ??

@@ -20,9 +20,9 @@ using System;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 [assembly: AssemblyCompany("GoldenCrystal")]
-[assembly: AssemblyCopyright("Copyright © GoldenCrystal 2007-2011")]
+[assembly: AssemblyCopyright("Copyright © GoldenCrystal 2007-2014, Bananenbrot 2011-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 
-[assembly: AssemblyFileVersion("1.7.2.0")]
+[assembly: AssemblyFileVersion("1.7.3.0")]
