@@ -47,10 +47,10 @@ namespace CrystalMpq.WoW.ArchiveDetection
             {
                 archiveList.Add(new WoWArchiveInformation(FormatHyphenatedArchiveName(file), WoWArchiveKind.Base));
 
-                for (int i = 1; ; i++)
+                for (int i = 1; i < 4; i++)
                 {
                     string archiveName = FormatHyphenatedArchiveName(file, i);
-                    if (!File.Exists(Path.Combine(dataPath, archiveName))) break;
+                    if (!File.Exists(Path.Combine(dataPath, archiveName))) continue;
 
                     archiveList.Add(new WoWArchiveInformation(archiveName, WoWArchiveKind.Base));
                 }
@@ -67,10 +67,10 @@ namespace CrystalMpq.WoW.ArchiveDetection
             {
                 archiveList.Add(new WoWArchiveInformation(FormatHyphenatedArchiveName(file), WoWArchiveKind.LanguagePack));
 
-                for (int i = 1; ; i++)
+                for (int i = 1; i < 4; i++)
                 {
                     string archiveName = FormatHyphenatedArchiveName(file, i);
-                    if (!File.Exists(Path.Combine(localePath, archiveName))) break;
+                    if (!File.Exists(Path.Combine(localePath, archiveName))) continue;
 
                     archiveList.Add(new WoWArchiveInformation(archiveName, WoWArchiveKind.LanguagePack));
                 }
